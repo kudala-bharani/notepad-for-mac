@@ -20,8 +20,13 @@ if ! /usr/bin/xcode-select -p >/dev/null 2>&1 ||
     fail 'Install Apple Command Line Tools with xcode-select --install, then run this build again.'
 fi
 
+compiler_flags=(-fobjc-arc -fblocks -O2 -Wall -mmacosx-version-min=13.0)
+if [[ "${1:-}" == --universal ]]; then
+    compiler_flags+=(-arch arm64 -arch x86_64)
+    shift
+fi
 if (( $# > 1 )); then
-    fail 'Usage: scripts/build.sh [output/Notepad.app]'
+    fail 'Usage: scripts/build.sh [--universal] [output/Notepad.app]'
 fi
 
 project_directory="$(cd -- "$(/usr/bin/dirname -- "${BASH_SOURCE[0]}")/.." && pwd -P)"
@@ -73,13 +78,13 @@ trap 'exit 129' HUP
 trap 'exit 130' INT
 trap 'exit 143' TERM
 
-printf 'Building Notepad for this Mac…\n'
+printf 'Building Notepad…\n'
 /bin/mkdir -p "${staged_app}/Contents/MacOS" "${staged_app}/Contents/Resources"
 /bin/cp "${project_directory}/Resources/Info.plist" "${staged_app}/Contents/Info.plist"
 /bin/cp "${project_directory}/Resources/Notepad.icns" "${staged_app}/Contents/Resources/Notepad.icns"
 
 /usr/bin/xcrun --sdk macosx clang \
-    -fobjc-arc -fblocks -O2 -Wall -mmacosx-version-min=13.0 \
+    "${compiler_flags[@]}" \
     "${project_directory}/Sources/main.m" "${project_directory}/Sources/SessionStore.m" \
     "${project_directory}/Sources/LiveEditor.m" "${project_directory}/Sources/LiveFormatting.m" \
     "${project_directory}/Sources/LiveMarkdown.m" "${project_directory}/Sources/EditorTypography.m" \

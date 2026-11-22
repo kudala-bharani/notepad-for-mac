@@ -42,7 +42,7 @@ For a feature idea, explain what you are trying to do and how the proposed chang
 | `Sources/EditorTypography.*` | Font choices, style variants, and text-size limits |
 | `Sources/SessionStore.*` | Tab models and session persistence |
 | `Resources/` | App metadata and icon |
-| `scripts/` | Local build and test commands |
+| `scripts/` | Build, test, and disk-image packaging commands |
 
 ## Test a change
 
@@ -57,6 +57,28 @@ For editor changes, also try the behavior in the app. Check typing, caret placem
 Drafts live at `~/Library/Application Support/com.kudala.notepad/session.json`. Keep a copy of any important drafts before testing changes to session storage. Check older session data as well as newly created notes when changing the saved format.
 
 Use a focused regression test when fixing a reproducible bug. Keep source changes readable and limit unrelated formatting changes so a reviewer can follow the fix.
+
+## Package a disk image
+
+To build a universal preview for Apple silicon and Intel Macs, run the following from the repository folder.
+
+```bash
+./scripts/package-dmg.sh
+```
+
+Version 1.5 writes `build/Notepad-1.5-preview.dmg`. Open it in Finder to check the drag-to-Applications install. The GitHub Actions build also produces a preview for review.
+
+### Prepare a public download
+
+On the release Mac, install your **Developer ID Application** certificate with its private key in Keychain. Set up a local notarization profile with `xcrun notarytool store-credentials "notepad-notary"`. The command prompts for the account details. Then use your certificate’s actual name and the saved profile name.
+
+```bash
+export NOTEPAD_SIGN_IDENTITY='Developer ID Application: Your Name (TEAMID)'
+export NOTEPAD_NOTARY_PROFILE='notepad-notary'
+./scripts/package-dmg.sh --release
+```
+
+For version 1.5, the release output is `build/Notepad-1.5.dmg`. Test the downloaded image on a second Mac or a fresh user account. Drag the app into Applications, launch it, type a draft, quit, and reopen to check that the draft returns. Attach the verified release DMG to the GitHub release. Apple describes certificate setup and notarization in [Signing your apps for Gatekeeper](https://developer.apple.com/developer-id/).
 
 ## Send a pull request
 

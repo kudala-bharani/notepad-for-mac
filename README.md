@@ -19,18 +19,21 @@ The app is written in Objective-C using AppKit and Foundation. Notes are stored 
 
 ## Install
 
-You need macOS 13 Ventura or later and Apple’s Command Line Tools, or a compatible Xcode installation.
+Notepad runs on macOS 13 Ventura or later. The disk image includes one app for both Apple silicon and Intel Macs.
 
-1. Download the repository with **Code → Download ZIP**, or clone it.
-2. Extract the ZIP and open the folder. If you already use Notepad, quit it with **⌘Q** first so it saves your current drafts.
-3. Double-click **Install Notepad.command**.
-4. If the installer asks for Command Line Tools, open Terminal and run `xcode-select --install`. Finish Apple’s installation, then run the Notepad installer again.
+### Install from a disk image
 
-The installer builds the app for your Mac, installs it at `~/Applications/Notepad.app`, and opens it. You can launch it later from Spotlight. Keep the source folder together until installation finishes.
+1. For a published version, look for a `.dmg` under **Assets** on the [Releases page](https://github.com/kudala-bharani/notepad-for-mac/releases). To try a preview, sign in to GitHub, open a successful [macOS build and tests](https://github.com/kudala-bharani/notepad-for-mac/actions/workflows/macos.yml) run, and download the preview DMG under **Artifacts**.
+2. Double-click the `.dmg` in Finder. Drag **Notepad** onto the **Applications** shortcut in the window.
+3. Eject the disk image in Finder, then open **Notepad** from Applications. You can delete the downloaded disk image after that.
 
-If Finder blocks the installer, click **Done**, open **System Settings → Privacy & Security**, find the blocked installer under **Security**, and choose **Open Anyway**. You can also open Terminal, type `/bin/bash` followed by a space, drag **Install Notepad.command** into the window, and press Return.
+**Updating a previous installation?** Quit Notepad with **⌘Q** first. Drag the app from the disk image into the folder that contains your existing copy and choose **Replace**. The source installer uses your home Applications folder. To open it in Finder, press **⇧⌘G**, enter `~/Applications`, and press Return. Your tabs and drafts are stored separately and reopen with the updated app.
 
-The installer applies a local signature to the app it builds.
+Preview builds use a local signature and may trigger a macOS verification warning. You can also build the app on your Mac using the source installer below.
+
+### Build and install from source
+
+Download the repository with **Code → Download ZIP** and extract it, or clone it. Open the repository folder and double-click **Install Notepad.command**. The installer builds the app for your Mac using Apple’s Command Line Tools or Xcode, installs it at `~/Applications/Notepad.app`, and opens it. If it asks for Command Line Tools, run `xcode-select --install` in Terminal, finish Apple’s installation, and run the installer again. See [INSTALL.txt](INSTALL.txt) for the full instructions.
 
 ## Writing and formatting
 
