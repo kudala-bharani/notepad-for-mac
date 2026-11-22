@@ -29,7 +29,15 @@ Notepad runs on macOS 13 Ventura or later. The disk image includes one app for b
 
 **Updating a previous installation?** Quit Notepad with **⌘Q** first. Drag the app from the disk image into the folder that contains your existing copy and choose **Replace**. The source installer uses your home Applications folder. To open it in Finder, press **⇧⌘G**, enter `~/Applications`, and press Return. Your tabs and drafts are stored separately and reopen with the updated app.
 
-Preview builds use a local signature and may trigger a macOS verification warning. You can also build the app on your Mac using the source installer below.
+### If Apple can’t verify Notepad on first launch
+
+The initial 1.5 DMG hasn’t been notarized by Apple, so macOS may say it can’t verify the developer or check Notepad for malicious software. If you downloaded the DMG from this GitHub repository and trust the build, you can approve this copy of Notepad.
+
+1. Open **Notepad** from your Applications folder. If the verification alert appears, dismiss it with **Done** or **Cancel**.
+2. Open **Apple menu → System Settings → Privacy & Security** and scroll to **Security**. Find the entry for **Notepad** and choose **Open Anyway**. On some macOS versions, click **Open** first.
+3. Confirm that you want to open Notepad and authenticate if prompted. After that, you can launch this copy normally.
+
+If the button is missing, try opening Notepad once more, then return to Settings. The button is available for about an hour after a blocked attempt. If macOS says the app **will damage your computer** or **is damaged**, discard that copy. [Apple’s guide to opening downloaded apps](https://support.apple.com/en-us/102445)
 
 ### Build and install from source
 
