@@ -4,6 +4,9 @@ I missed Windows Notepad after switching to a Mac, so I built the notepad I want
 
 Write anything, open a few tabs, close the app, and come back to your drafts later. Notepad for Mac is a native macOS app with automatic session restore, themes, and Markdown that formats as you type.
 
+**[Download Notepad 1.5 preview for Mac (.dmg)](https://github.com/kudala-bharani/notepad-for-mac/releases/download/v1.5.0-preview/Notepad-1.5-preview.dmg)**  
+macOS 13 Ventura or later · Apple silicon and Intel · [Installation instructions](#install)
+
 This started as something I built for myself. I’m sharing it for anyone who wants the same experience, and anyone who wants to help improve it. Bug reports, feature ideas, and pull requests are welcome.
 
 ## What it does
@@ -23,7 +26,7 @@ Notepad runs on macOS 13 Ventura or later. The disk image includes one app for b
 
 ### Install from a disk image
 
-1. For a published version, look for a `.dmg` under **Assets** on the [Releases page](https://github.com/kudala-bharani/notepad-for-mac/releases). To try a preview, sign in to GitHub, open a successful [macOS build and tests](https://github.com/kudala-bharani/notepad-for-mac/actions/workflows/macos.yml) run, and download the preview DMG under **Artifacts**.
+1. Use the download link above, or open the [1.5 preview release](https://github.com/kudala-bharani/notepad-for-mac/releases/tag/v1.5.0-preview) and click **Notepad-1.5-preview.dmg** under **Assets**.
 2. Double-click the `.dmg` in Finder. Drag **Notepad** onto the **Applications** shortcut in the window.
 3. Eject the disk image in Finder, then open **Notepad** from Applications. You can delete the downloaded disk image after that.
 
@@ -39,9 +42,14 @@ The initial 1.5 DMG hasn’t been notarized by Apple, so macOS may say it can’
 
 If the button is missing, try opening Notepad once more, then return to Settings. The button is available for about an hour after a blocked attempt. If macOS says the app **will damage your computer** or **is damaged**, discard that copy. [Apple’s guide to opening downloaded apps](https://support.apple.com/en-us/102445)
 
-### Build and install from source
+### Install from the source ZIP
 
-Download the repository with **Code → Download ZIP** and extract it, or clone it. Open the repository folder and double-click **Install Notepad.command**. The installer builds the app for your Mac using Apple’s Command Line Tools or Xcode, installs it at `~/Applications/Notepad.app`, and opens it. If it asks for Command Line Tools, run `xcode-select --install` in Terminal, finish Apple’s installation, and run the installer again. See [INSTALL.txt](INSTALL.txt) for the full instructions.
+1. On the repository’s main page, click the green **Code** button and choose **Download ZIP**.
+2. In Finder, open **Downloads** and double-click the ZIP to extract it. If your browser already extracted it, open the folder. Keep the files together until installation finishes.
+3. If Notepad is running, quit it with **⌘Q**. In the extracted folder, double-click **Install Notepad.command**.
+4. A Terminal window opens and runs the installer. It builds Notepad on your Mac, installs it at `~/Applications/Notepad.app`, and launches it. After that you can open Notepad from Spotlight.
+
+If Terminal asks for Apple’s Command Line Tools, run `xcode-select --install` in Terminal, finish Apple’s installation, then double-click **Install Notepad.command** again. If Finder blocks the command file, follow the verification steps above and look for **Install Notepad.command** in Privacy & Security. [More installation details](INSTALL.txt)
 
 ## Writing and formatting
 
