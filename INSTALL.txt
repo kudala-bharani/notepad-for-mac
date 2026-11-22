@@ -2,6 +2,22 @@ Notepad for Mac 1.5
 
 Install on macOS 13 Ventura or later
 
+Install from a disk image
+
+Open the downloaded .dmg in Finder. Drag Notepad onto the Applications
+shortcut, eject the disk image, and open the app from Applications.
+You can delete the .dmg afterward.
+
+If updating, quit Notepad with Command+Q. Copy the new app into the
+folder containing the existing copy and choose Replace. The source
+installer uses ~/Applications. Enter that path in Finder with
+Shift+Command+G. Your drafts and tabs carry over.
+
+The GitHub Actions disk image is a preview with a local signature.
+macOS may block it on first launch.
+
+Build and install from source
+
 1. Quit any open copy of Notepad with Command+Q. Your drafts and open tabs
    will carry over when you update.
 2. Download the repository ZIP from GitHub with Code > Download ZIP, then

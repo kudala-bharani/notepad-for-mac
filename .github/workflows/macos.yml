@@ -36,3 +36,14 @@ jobs:
           if-no-files-found: error
           retention-days: 14
           archive: false
+
+      - name: Build and verify universal preview disk image
+        run: ./scripts/package-dmg.sh
+
+      - name: Upload drag-and-drop installer for review
+        uses: actions/upload-artifact@v7
+        with:
+          path: build/Notepad-*-preview.dmg
+          if-no-files-found: error
+          retention-days: 14
+          archive: false
