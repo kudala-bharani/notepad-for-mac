@@ -1,0 +1,70 @@
+Notepad for Mac 1.5
+
+Install on macOS 13 Ventura or later
+
+1. Quit any open copy of Notepad with Command+Q. Your drafts and open tabs
+   will carry over when you update.
+2. Download the repository ZIP from GitHub with Code > Download ZIP, then
+   extract it in Finder. Open the folder and double-click Install Notepad.command.
+3. If the installer asks for Command Line Tools, open Terminal and run
+   xcode-select --install
+   Accept Apple’s prompt, wait for the installation, then run the Notepad
+   installer again. You can use the tools already included with Xcode.
+4. Notepad opens when installation is complete. For your next launch, search
+   for Notepad in Spotlight or open ~/Applications/Notepad.app in Finder.
+
+If Finder blocks the installer, click Done. In System Settings, open Privacy
+& Security, find Install Notepad.command under Security, and click Open
+Anyway. Confirm the next prompt.
+
+You can also open Terminal and type /bin/bash followed by a space. Drag
+Install Notepad.command into Terminal and press Return. Terminal inserts
+the path for you.
+
+The installer builds Notepad on your Mac from the included Sources folder.
+It installs just for your macOS user. Keep all the files together until
+installation completes.
+
+Using Notepad
+
+- Open a scratch tab with Command+T and start typing. Quit with Command+Q.
+  Reopen Notepad to see your tabs and drafts again.
+- At the start of a line, type # followed by a space to start a Heading 1.
+  Use two to six # characters for smaller headings. To change an existing
+  heading's level, type the new marker at its start, such as ## followed by
+  a space for Heading 2. Press Return at the end of a heading to add a
+  regular line below. Press Return at the start of a heading with text to
+  add a regular line above it.
+- Type two stars (**), move the cursor between them, and type in bold.
+  Do the same with two underscores (__) to type in italics. You can also
+  type **bold**, _italic_, or __italic__ straight through. Press Right Arrow
+  or Escape to finish typing in the paired style.
+- Type `code` or [link text](https://example.com) for code or a link.
+  Start a bulleted list with - and a space or a numbered list with 1. and
+  a space.
+- At the beginning of a numbered item, press Tab to make it a sublist or
+  Shift+Tab to move it back one level. Return continues the current level.
+  List numbers use the text's font and consistent spacing.
+- Type > followed by a space at the start of a line to start a quote.
+  Type ~~text~~ for strikethrough.
+- Type three backticks at the start of a line, add a language name if you
+  want one, and press Return to start a code block. To end the block, type
+  three backticks on their own line and press Return.
+- Type [] or [ ] at the start of a line, or after starting a bulleted
+  item, to add a checkbox. Click the box to check or uncheck it. Press
+  Return to add another checkbox, or press Return on an empty task to
+  end the list. Format > Toggle Checkbox also works from the current task.
+- Checked tasks show a line through their text and move to the bottom of
+  the same uninterrupted task list. Uncheck a task to move it among the
+  open tasks again.
+- Use Edit > Paste as Markdown (Option+Shift+Command+V) to format pasted
+  Markdown. Ordinary paste inserts it literally.
+- Under View > Text Size, increase, decrease, or reset the editor size.
+  The shortcuts are Command+Plus or Command+Equals to increase,
+  Command+Minus to decrease, and Command+0 to reset.
+- Under View > Font, choose Comic Sans, System, or Monospaced. Notepad
+  defaults to Comic Sans MS when installed and remembers your font and
+  text size choices.
+- Under View > Theme, choose System, Light, Dark, or Paper.
+- Press Command+S to save the current tab as a file. Save as .md to retain
+  Markdown formatting or .txt for plain text.

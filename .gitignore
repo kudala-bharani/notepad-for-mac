@@ -1,0 +1,9 @@
+.DS_Store
+.AppleDouble
+.LSOverride
+build/
+DerivedData/
+*.app/
+*.dSYM/
+*.xcuserstate
+xcuserdata/

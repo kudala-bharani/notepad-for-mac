@@ -1,0 +1,35 @@
+name: Bug report
+description: Report a problem while using Notepad.
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Include what you expected to happen.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Include example text and the exact keys you pressed.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Notepad version
+      placeholder: "1.5"
+    validations:
+      required: true
+  - type: input
+    id: system
+    attributes:
+      label: macOS version and Mac model
+    validations:
+      required: true
+  - type: textarea
+    id: attachments
+    attributes:
+      label: Screenshots or other details
+      description: Remove personal note contents before attaching files.

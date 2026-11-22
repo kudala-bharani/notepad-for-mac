@@ -1,0 +1,38 @@
+name: macOS build and tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build-and-test:
+    runs-on: macos-15
+    timeout-minutes: 10
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Build app
+        run: bash scripts/build.sh
+
+      - name: Run native regression tests
+        run: bash scripts/test.sh
+
+      - name: Package app
+        run: ditto -c -k --sequesterRsrc --keepParent build/Notepad.app build/Notepad-macOS.zip
+
+      - name: Upload app for review
+        uses: actions/upload-artifact@v7
+        with:
+          name: Notepad-macOS
+          path: build/Notepad-macOS.zip
+          if-no-files-found: error
+          retention-days: 14
+          archive: false
